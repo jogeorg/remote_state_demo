@@ -1,9 +1,9 @@
-variable "subscription" {
+variable "subscription_id" {
   type        = string
   description = "The subscription ID"
 }
 
-variable "tenant" {
+variable "tenant_id" {
   type        = string
   description = "The tenant ID"
 }

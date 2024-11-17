@@ -5,20 +5,17 @@ terraform {
       version = "~>4.0"
     }
     time = {
-      source = "hashicorp/time"
+      source  = "hashicorp/time"
       version = "0.12.1"
     }
+  }
 
-<<<<<<< Updated upstream
-  backend "azurerm" {}
-=======
   backend "azurerm" {
     resource_group_name  = ""
     storage_account_name = ""
     container_name       = ""
     key                  = ""
   }
->>>>>>> Stashed changes
 }
 
 provider "time" {}
@@ -31,7 +28,6 @@ provider "azurerm" {
   environment                = var.environment
   skip_provider_registration = true
   features {}
-  }
 }
 
 resource "time_sleep" "wait_5_minutes" {
