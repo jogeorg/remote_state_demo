@@ -4,10 +4,6 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "~>3.95"
     }
-    time = {
-      source  = "hashicorp/time"
-      version = "0.12.1"
-    }
   }
 }
 
@@ -15,10 +11,6 @@ provider "azurerm" {
   environment = "usgovernment"
   features {}
 }
-
-# resource "time_sleep" "wait_2_minutes" {
-#   create_duration = "2m"
-# }
 
 resource "azurerm_resource_group" "example" {
   name     = "example-resources"
