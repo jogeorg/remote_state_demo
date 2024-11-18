@@ -4,17 +4,6 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "~>4.0"
     }
-
-<<<<<<< Updated upstream
-  backend "azurerm" {}
-=======
-  backend "azurerm" {
-    resource_group_name  = ""
-    storage_account_name = ""
-    container_name       = ""
-    key                  = ""
-    }
->>>>>>> Stashed changes
 }
 
 provider "azurerm" {
