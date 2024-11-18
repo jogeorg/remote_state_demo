@@ -4,6 +4,10 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "~>3.95"
     }
+    time = {
+      source  = "hashicorp/time"
+      version = "0.12.1"
+    }
   }
 }
 
@@ -12,26 +16,18 @@ provider "azurerm" {
   features {}
 }
 
+# resource "time_sleep" "wait_2_minutes" {
+#   create_duration = "2m"
+# }
+
 resource "azurerm_resource_group" "example" {
   name     = "example-resources"
   location = "usgovvirginia"
 }
 
 resource "azurerm_virtual_network" "example" {
-  name = "example-network"
-  location = azurerm_resource_group.example.location
+  name                = "example-network"
+  location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
-  address_space = ["10.0.0.0/24"]
+  address_space       = ["10.0.0.0/24"]
 }
-
-# resource "azurerm_subnet" "example" {
-#   name                 = "internal"
-#   resource_group_name  = azurerm_resource_group.example.name
-#   virtual_network_name = azurerm_virtual_network.example.name
-# }
-
-# resource "azurerm_network_security_group" "example" {
-#   name                = "example-nsg"
-#   location            = azurerm_resource_group.example.location
-#   resource_group_name = azurerm_resource_group.example.name
-# }
